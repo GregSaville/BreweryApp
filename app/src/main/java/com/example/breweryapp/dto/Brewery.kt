@@ -4,6 +4,7 @@ package com.example.breweryapp.dto
 
 
 data class Brewery(
+    //yomesayin
     val id: Int?,
     val name: String?,
    // @SerializedName("brewery_type")
