@@ -11,15 +11,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val brewService = BreweryService()
-
-        brewService.getExampleBrewey(
-            success = {
-                Log.i("asdf",it.toString())
-        },
-            failure = {
-                Log.e("asdf",it)
-            })
-        
     }
 }
