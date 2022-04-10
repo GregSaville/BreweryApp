@@ -1,13 +1,8 @@
 package com.example.breweryapp.dto
 
-//import com.google.gson.annotations.SerializedName
-
-
 data class Brewery(
-    //yomesayin
-    val id: Int?,
+    val id: String?,
     val name: String?,
-   // @SerializedName("brewery_type")
     val brewery_type: String?,
     val street: String?,
     val address_2: String?,
