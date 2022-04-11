@@ -7,8 +7,10 @@ class SearchPresenter(val view: SearchActivity) {
     val brewService = BreweryService()
 
     fun startSearch() {
-        getByCity("fargo")
+        //getByCity("fargo")
+        getByDist(38.3977, 77.0365)
     }
+
 
     private fun getExampleList() {
         brewService.getExampleBrewey(
@@ -28,6 +30,16 @@ class SearchPresenter(val view: SearchActivity) {
             },
             failure = {
                 Log.e("asdf", "Error in getByCity")
+            }
+        )
+    }
+    private fun getByDist(latitude: Double, longitude: Double) {
+        brewService.getByDist(latitude,longitude,
+            success = {
+                view.bindBreweries(it)
+            },
+            failure = {
+                Log.e("asdf", "Error in getByDist")
             }
         )
     }
