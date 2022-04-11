@@ -7,17 +7,9 @@
     android:orientation="vertical"
     tools:context=".view.SearchActivity">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="48dp"
-        android:text="HELLLO VIETNAAM"/>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_breweries"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -10,7 +10,7 @@ class SearchPresenter(val view: SearchView) {
         getExampleList()
     }
 
-    fun getExampleList(){
+    private fun getExampleList(){
         brewService.getExampleBrewey(
             success = { breweries ->
                 view.bindBreweries(breweries)
