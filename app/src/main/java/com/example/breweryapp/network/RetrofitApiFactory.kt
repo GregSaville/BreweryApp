@@ -7,7 +7,7 @@ class RetrofitApiFactory {
 
     fun getBreweryApi(): OpenBreweryApi {
         return Retrofit.Builder()
-            .baseUrl("https://api.openbrewerydb.org/breweries/")
+            .baseUrl("https://api.openbrewerydb.org/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(OpenBreweryApi::class.java)
