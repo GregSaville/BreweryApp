@@ -8,7 +8,7 @@ class SearchPresenter(val view: SearchActivity) {
 
     fun startSearch() {
         //getByCity("fargo")
-        getByName("Diving Dog Brewhouse")
+        getByName("Beer")
     }
 
 
