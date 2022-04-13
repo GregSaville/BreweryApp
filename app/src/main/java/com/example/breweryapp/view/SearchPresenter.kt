@@ -7,9 +7,9 @@ class SearchPresenter(val view: SearchActivity) {
     val brewService = BreweryService()
 
     fun startSearch() {
-        //getByCity("fargo")
+        getByCity("dublin")
         //getByName("Beer")
-        getByDist("50,50")
+        //getByDist("50,50")
     }
 
 

@@ -17,6 +17,8 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvName.text = breweries[position].name
+        holder.tvCity.text = breweries[position].city
+        holder.tvType.text = breweries[position].brewery_type
 
     }
 
@@ -26,6 +28,8 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvName : TextView = view.findViewById(R.id.tv_name)
+        val tvCity : TextView = view.findViewById(R.id.tv_city)
+        val tvType : TextView = view.findViewById(R.id.tv_type)
 
     }
 
