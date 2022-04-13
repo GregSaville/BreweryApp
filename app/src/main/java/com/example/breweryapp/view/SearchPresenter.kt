@@ -53,4 +53,14 @@ class SearchPresenter(val view: SearchActivity) {
             }
         )
     }
+    private fun getByState(state: String) {
+        brewService.getByName(state,
+            success = {
+                view.bindBreweries(it)
+            },
+            failure = {
+                Log.e("asdf", "Error in getByCity")
+            }
+        )
+    }
 }

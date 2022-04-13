@@ -18,4 +18,6 @@ interface OpenBreweryApi {
     fun getBreweryByDistance(@Query(value = "by_dist") latitude: Double, longitude: Double) : Call<List<Brewery>>
     @GET("breweries")
     fun getBreweryByName(@Query(value = "by_name") by_name: String) : Call<List<Brewery>>
+    @GET("breweries")
+    fun getBreweryByState(@Query(value = "by_state") by_state: String) : Call<List<Brewery>>
 }

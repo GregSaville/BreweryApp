@@ -95,7 +95,32 @@ class BreweryService {
         success: (List<Brewery>) -> Unit,
         failure: (errorMessage: String) -> Unit
     ) {
-        api.getBreweryByCity(name).enqueue(object : Callback<List<Brewery>> {
+        api.getBreweryByName(name).enqueue(object : Callback<List<Brewery>> {
+            override fun onResponse(call: Call<List<Brewery>>, response: Response<List<Brewery>>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        success(it)
+                    } ?: run {
+                        failure("no Brewery got in onResponse")
+                    }
+                } else {
+                    failure("error with onResponse")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Brewery>>, t: Throwable) {
+                failure("Error, OnFailure")
+            }
+
+
+        })}
+
+    fun getByState(
+        stateName : String,
+        success: (List<Brewery>) -> Unit,
+        failure: (errorMessage: String) -> Unit
+    ) {
+        api.getBreweryByState(stateName).enqueue(object : Callback<List<Brewery>> {
             override fun onResponse(call: Call<List<Brewery>>, response: Response<List<Brewery>>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
