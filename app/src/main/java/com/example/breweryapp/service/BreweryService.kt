@@ -60,12 +60,11 @@ class BreweryService {
 
         })}
         fun getByDist(
-            latitude: Double,
-            longitude: Double,
+            latLong : String,
             success: (List<Brewery>) -> Unit,
             failure: (errorMessage: String) -> Unit
         ) {
-            api.getBreweryByDistance(latitude, longitude).enqueue(object : Callback<List<Brewery>> {
+            api.getBreweryByDistance(latLong).enqueue(object : Callback<List<Brewery>> {
                 override fun onResponse(
                     call: Call<List<Brewery>>,
                     response: Response<List<Brewery>>

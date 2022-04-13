@@ -8,7 +8,8 @@ class SearchPresenter(val view: SearchActivity) {
 
     fun startSearch() {
         //getByCity("fargo")
-        getByName("Beer")
+        //getByName("Beer")
+        getByDist("50,50")
     }
 
 
@@ -33,8 +34,8 @@ class SearchPresenter(val view: SearchActivity) {
             }
         )
     }
-    private fun getByDist(latitude: Double, longitude: Double) {
-        brewService.getByDist(latitude,longitude,
+    private fun getByDist(latLong : String) {
+        brewService.getByDist(latLong,
             success = {
                 view.bindBreweries(it)
             },
@@ -54,7 +55,7 @@ class SearchPresenter(val view: SearchActivity) {
         )
     }
     private fun getByState(state: String) {
-        brewService.getByName(state,
+        brewService.getByState(state,
             success = {
                 view.bindBreweries(it)
             },
