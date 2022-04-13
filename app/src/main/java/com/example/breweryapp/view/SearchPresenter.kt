@@ -8,7 +8,7 @@ class SearchPresenter(val view: SearchActivity) {
 
     fun startSearch() {
         //getByCity("fargo")
-        getByName("Beer")
+        getByDist(38.3977, 77.0365)
     }
 
 
@@ -40,16 +40,6 @@ class SearchPresenter(val view: SearchActivity) {
             },
             failure = {
                 Log.e("asdf", "Error in getByDist")
-            }
-        )
-    }
-    private fun getByName(name: String) {
-        brewService.getByName(name,
-            success = {
-                view.bindBreweries(it)
-            },
-            failure = {
-                Log.e("asdf", "Error in getByCity")
             }
         )
     }
