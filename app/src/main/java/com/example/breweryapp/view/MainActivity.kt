@@ -31,12 +31,13 @@ class MainActivity : AppCompatActivity() {
         searchBtn = findViewById(R.id.search_button)
         favoritesBtn = findViewById(R.id.favorites_button)
 
-        //implementing button functionality
-        /*
+
+
         searchBtn.setOnClickListener {
             val searchActivityIntent = Intent(this, SearchActivity::class.java)
             startActivity(searchActivityIntent)
         }
+        /*
         favoritesBtn.setOnClickListener {
             val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
             startActivity(favoritesActivityIntent)
