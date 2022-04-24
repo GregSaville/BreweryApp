@@ -9,11 +9,14 @@ import com.example.breweryapp.service.BreweryService
 class SearchPresenter(val view: SearchActivity) {
     val brewService = BreweryService()
 
+
+
     fun startSearch() {
         getByCity("fargo")
         //getByName("Beer")
         //getByDist("50,50")
     }
+
 
 
     private fun getExampleList() {
