@@ -2,6 +2,7 @@ package com.example.breweryapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Spinner
@@ -30,15 +31,42 @@ class SearchActivity : AppCompatActivity(), SearchView {
         rvBreweries.adapter = BreweryListAdapter(breweries)
     }
 
+    override fun ArrayAdapter() {
+        TODO("Not yet implemented")
+    }
+
 
     private fun bindViews(){
         rvBreweries = findViewById(R.id.rv_breweries)
         spnrSearch = findViewById(R.id.spnr_search)
-        //initSpinner()
+        initSpinner()
     }
+
+    private fun initSpinner(){
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.brewery_spinner_array,
+            android.R.layout.simple_spinner_item).also {
+                adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spnrSearch.adapter = adapter
+        }
+
+
+    }
+
+
+
+
 /*
     private fun initSpinner(){
-        val spnrList = listOf("Name","City","Distance","Default")
+
+
+
+
+        //figure out why arrayadapter doesn't work
+        //add onclick listeners
+
         val adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,spnrList)
         spnrSearch.adapter = adapter
 

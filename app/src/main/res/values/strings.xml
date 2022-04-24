@@ -14,4 +14,13 @@
     <string name="brewery_app_for_da_lads">BREWERY APP FOR DA LADS</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="API_KEY">AIzaSyAyJhwLzi_mR3D2Ft8AWd7Ya0fsHjp393Q</string>
+
+    <string-array name="brewery_spinner_array">
+        <item>Name</item>
+        <item>City</item>
+        <item>Distance</item>
+        <item>Default</item>
+
+    </string-array>
+
 </resources>

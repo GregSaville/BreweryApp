@@ -4,5 +4,6 @@ import com.example.breweryapp.dto.Brewery
 
 interface SearchView {
     fun bindBreweries(breweries: List<Brewery>)
+    fun ArrayAdapter()
 
 }

@@ -3,11 +3,14 @@ package com.example.breweryapp.view
 import android.util.Log
 import com.example.breweryapp.service.BreweryService
 
+// presenter should only have 1 view
+
+
 class SearchPresenter(val view: SearchActivity) {
     val brewService = BreweryService()
 
     fun startSearch() {
-        getByCity("dublin")
+        getByCity("fargo")
         //getByName("Beer")
         //getByDist("50,50")
     }
