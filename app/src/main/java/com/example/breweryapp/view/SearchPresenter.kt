@@ -12,9 +12,7 @@ class SearchPresenter(val view: SearchActivity) {
 
 
     fun startSearch() {
-        getByCity("fargo")
-        //getByName("Beer")
-        //getByDist("50,50")
+        getExampleList()
     }
 
 
@@ -69,5 +67,20 @@ class SearchPresenter(val view: SearchActivity) {
                 Log.e("asdf", "Error in getByCity")
             }
         )
+    }
+
+    fun makeSearch(currentSelection: String, value: String) {
+        if(currentSelection == "Name"){
+            getByName(value)
+        }
+        if(currentSelection == "City"){
+            getByCity(value)
+        }
+        if(currentSelection == "Distance"){
+            getByDist(value)
+        }
+        if(currentSelection == "Default"){
+            getExampleList()
+        }
     }
 }

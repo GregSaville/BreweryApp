@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.Spinner
 import com.example.breweryapp.R
 import com.example.breweryapp.dto.Brewery
 
@@ -20,7 +18,8 @@ class SearchActivity : AppCompatActivity(), SearchView {
     var currentSelection : String = ""
     lateinit var rvBreweries: RecyclerView
     lateinit var spnrSearch: Spinner
-    lateinit var
+    lateinit var searchButton: Button
+    lateinit var searchText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +45,11 @@ class SearchActivity : AppCompatActivity(), SearchView {
         rvBreweries = findViewById(R.id.rv_breweries)
         spnrSearch = findViewById(R.id.spnr_search)
         initSpinner()
+        searchText = findViewById(R.id.spinner_edit_text)
+        searchButton = findViewById(R.id.btn_search)
+        searchButton.setOnClickListener(){
+            presenter.makeSearch(currentSelection, searchText.text.toString())
+        }
     }
 
     private fun initSpinner(){
