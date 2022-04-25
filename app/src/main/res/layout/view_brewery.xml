@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:orientation="vertical">
+    android:layout_height="128dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <TextView
         android:layout_width="match_parent"
@@ -29,16 +30,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_type"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" ----- "/>
 
         <Button
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:id="@+id/bt_details"
-            android:text=". . ."/>
+            android:layout_marginLeft="32dp"
+            android:layout_weight="1"
+            android:text="Details"
+            android:textSize="12sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/bt_favorites"
+            android:layout_weight="1"
+            android:layout_marginLeft="32dp"
+            android:text="Favs"
+            android:textSize="12sp"/>
 
     </LinearLayout>
 
