@@ -1,9 +1,11 @@
 package com.example.breweryapp.view
 
 import android.text.Layout
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
@@ -19,6 +21,12 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
         holder.tvName.text = breweries[position].name
         holder.tvCity.text = breweries[position].city
         holder.tvType.text = breweries[position].brewery_type
+        holder.btDetail.setOnClickListener(){
+            Log.i("asdf", "To Do: Add detail page")
+        }
+        holder.btFavorites.setOnClickListener(){
+            Log.i("asdf", "To Do: Add to favorites in shared preferences")
+        }
 
     }
 
@@ -30,7 +38,8 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
         val tvName : TextView = view.findViewById(R.id.tv_name)
         val tvCity : TextView = view.findViewById(R.id.tv_city)
         val tvType : TextView = view.findViewById(R.id.tv_type)
-
+        val btDetail : Button = view.findViewById(R.id.bt_details)
+        val btFavorites : Button = view.findViewById(R.id.bt_favorites)
     }
 
 }

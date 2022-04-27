@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
 import com.example.breweryapp.dto.Brewery
+import com.example.breweryapp.service.BreweryService
 
 class SearchActivity : AppCompatActivity(), SearchView {
 //set on selected item listener
     //edit text  && submit button
-
-    val presenter = SearchPresenter(this)
+    val brewService = BreweryService()
+    val presenter = SearchPresenter(this,brewService)
     var currentSelection : String = ""
     lateinit var rvBreweries: RecyclerView
     lateinit var spnrSearch: Spinner

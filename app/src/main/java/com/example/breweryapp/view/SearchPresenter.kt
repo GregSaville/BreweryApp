@@ -6,8 +6,7 @@ import com.example.breweryapp.service.BreweryService
 // presenter should only have 1 view
 
 
-class SearchPresenter(val view: SearchActivity) {
-    val brewService = BreweryService()
+class SearchPresenter(val view: SearchActivity,val brewService : BreweryService) {
 
 
 
