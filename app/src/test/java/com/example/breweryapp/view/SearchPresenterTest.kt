@@ -18,5 +18,12 @@ class SearchPresenterTest {
         verify { brewService.getByCity(any(),any(),any()) }
     }
 
+    @Test
+    fun `On search click, search by default`(){
+        presenter.makeSearch("Default", "")
+
+        verify{ brewService.getExampleBrewey(any(),any()) }
+    }
+
 
 }
