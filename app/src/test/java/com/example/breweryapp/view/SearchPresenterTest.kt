@@ -12,14 +12,28 @@ class SearchPresenterTest {
     val presenter = SearchPresenter(view, brewService)
 
     @Test
-    fun `On search click, search by city`(){
-        presenter.makeSearch("City", "Fargo")
+    fun `When searching by name, search by name`(){
+        presenter.makeSearch("Name", "Drekker")
 
-        verify { brewService.getByCity(any(),any(),any()) }
+        verify { brewService.getByName("Drekker",any(),any()) }
     }
 
     @Test
-    fun `On search click, search by default`(){
+    fun `When searching by distance, search by distance`(){
+        presenter.makeSearch("Distance", "5,5")
+
+        verify { brewService.getByDist("5,5",any(),any()) }
+    }
+
+    @Test
+    fun `When searching by city, search by city`(){
+        presenter.makeSearch("City", "Fargo")
+
+        verify { brewService.getByCity("Fargo",any(),any()) }
+    }
+
+    @Test
+    fun `When default selected in spinner, search by default`(){
         presenter.makeSearch("Default", "")
 
         verify{ brewService.getExampleBrewey(any(),any()) }
