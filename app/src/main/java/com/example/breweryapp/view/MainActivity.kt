@@ -1,6 +1,8 @@
 package com.example.breweryapp.view
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +14,7 @@ import com.example.breweryapp.service.BreweryService
 class MainActivity : AppCompatActivity() {
     private lateinit var searchBtn: Button
     private lateinit var favoritesBtn: Button
-
+    val favList: SharedPreferences = getSharedPreferences("favoritesList", Context.MODE_PRIVATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +41,10 @@ class MainActivity : AppCompatActivity() {
             val searchActivityIntent = Intent(this, SearchActivity::class.java)
             startActivity(searchActivityIntent)
         }
-        /*
-        favoritesBtn.setOnClickListener {
-            val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
-            startActivity(favoritesActivityIntent)
-        }
-        */
 
+//        favoritesBtn.setOnClickListener {
+//            val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
+//            startActivity(favoritesActivityIntent)
+//        }
     }
 }

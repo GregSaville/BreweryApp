@@ -72,7 +72,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
                 ) {
                     val selectedItem = parent?.getItemAtPosition(position).toString()
                     if (selectedItem == "Name"){
-                        Log.i("asdf", "success")
+                        //Log.i("asdf", "success")
                         currentSelection = "Name"
                     }
                     if (selectedItem == "City"){
@@ -87,7 +87,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
+                    currentSelection = "Default"
                 }
             }
 

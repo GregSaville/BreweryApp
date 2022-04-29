@@ -1,5 +1,7 @@
 package com.example.breweryapp.view
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.text.Layout
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +15,7 @@ import com.example.breweryapp.dto.Brewery
 
 
 class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Adapter<BreweryListAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_brewery, parent, false))
     }
@@ -26,6 +29,7 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
         }
         holder.btFavorites.setOnClickListener(){
             Log.i("asdf", "To Do: Add to favorites in shared preferences")
+
         }
 
     }

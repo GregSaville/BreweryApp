@@ -1,7 +1,12 @@
 package com.example.breweryapp.service
 
+
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
 import com.example.breweryapp.dto.Brewery
 import com.example.breweryapp.network.RetrofitApiFactory
+import com.example.breweryapp.view.BreweryApplication
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -9,6 +14,8 @@ import retrofit2.Response
 class BreweryService {
 
     val api = RetrofitApiFactory().getBreweryApi()
+    var key = "FavList"
+
 
     fun getExampleBrewey(
         success: (List<Brewery>) -> Unit,
@@ -139,6 +146,24 @@ class BreweryService {
 
         })}
 
+    fun saveBrewery(brewery: Brewery){
+        val favList: SharedPreferences = BreweryApplication.appContext.getSharedPreferences(key, Context.MODE_PRIVATE)
+        val favEditor = favList.edit()
+        val savedBreweries = getAllBreweries()
+        if(savedBreweries!=null){
+            savedBreweries.add(brewery.name.toString())
+            favEditor.putStringSet("key", savedBreweries).commit()
+        } else{
+            val newBrewery = setOf(brewery.name.toString())
+            favEditor.putStringSet("key", newBrewery).commit()
+        }
+
+    }
+
+    private fun getAllBreweries(): MutableSet<String>? {
+        val favList: SharedPreferences = BreweryApplication.appContext.getSharedPreferences(key, Context.MODE_PRIVATE)
+        return favList.getStringSet("key",null)
+    }
 
 }
 

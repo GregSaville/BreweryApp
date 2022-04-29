@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BreweryApp">
-
+        <activity
+            android:name=".view.detailActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -25,17 +27,15 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value= "@string/API_KEY" />
+            android:value="@string/API_KEY" />
 
         <activity
             android:name=".view.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" />
-
         <activity
             android:name=".view.SearchActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
