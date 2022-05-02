@@ -27,6 +27,10 @@ class SearchActivity : AppCompatActivity(), SearchView {
         setContentView(R.layout.activity_search)
 
         bindViews()
+        initSpinner()
+        searchButton.setOnClickListener(){
+            presenter.makeSearch(currentSelection, searchText.text.toString())
+        }
 
         presenter.startSearch()
 
@@ -45,12 +49,8 @@ class SearchActivity : AppCompatActivity(), SearchView {
     private fun bindViews(){
         rvBreweries = findViewById(R.id.rv_breweries)
         spnrSearch = findViewById(R.id.spnr_search)
-        initSpinner()
         searchText = findViewById(R.id.spinner_edit_text)
         searchButton = findViewById(R.id.btn_search)
-        searchButton.setOnClickListener(){
-            presenter.makeSearch(currentSelection, searchText.text.toString())
-        }
     }
 
     private fun initSpinner(){

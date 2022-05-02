@@ -10,6 +10,8 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/offWhite"
         android:id="@+id/spnr_search"/>
     <LinearLayout
         android:layout_width="match_parent"

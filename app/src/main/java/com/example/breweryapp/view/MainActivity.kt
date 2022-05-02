@@ -8,13 +8,18 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
+import com.example.breweryapp.dto.Brewery
 import com.example.breweryapp.service.BreweryService
+import java.lang.Math.random
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var searchBtn: Button
     private lateinit var favoritesBtn: Button
-    val favList: SharedPreferences = getSharedPreferences("favoritesList", Context.MODE_PRIVATE)
+    private lateinit var brewOfDay: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,18 +27,22 @@ class MainActivity : AppCompatActivity() {
 
         val brewService = BreweryService()
 
-        brewService.getExampleBrewey(
-            success = {
-
-        },
-            failure = {
-                Log.e("asdf",it)
-            })
-
 
         //buttons
         searchBtn = findViewById(R.id.search_button)
         favoritesBtn = findViewById(R.id.favorites_button)
+        brewOfDay = findViewById(R.id.rv_BofD)
+
+        brewService.getExampleBrewey(
+            success = {
+                val brew = listOf<Brewery>(it[Random.nextInt(it.size)])
+
+                bindBreweries(brew)
+            },
+            failure = {
+                Log.e("asdf",it)
+            })
+
 
 
 
@@ -46,5 +55,10 @@ class MainActivity : AppCompatActivity() {
 //            val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
 //            startActivity(favoritesActivityIntent)
 //        }
+    }
+
+    fun bindBreweries(breweries: List<Brewery>) {
+        brewOfDay.layoutManager = LinearLayoutManager(this)
+        brewOfDay.adapter = BreweryListAdapter(breweries)
     }
 }

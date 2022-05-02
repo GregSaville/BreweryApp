@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreweryApp">
         <activity
-            android:name=".view.detailActivity"
+            android:name=".view.DetailActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.

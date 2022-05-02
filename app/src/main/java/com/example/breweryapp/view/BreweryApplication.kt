@@ -6,7 +6,7 @@ import android.content.Context
 class BreweryApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        BreweryApplication.appContext = applicationContext
+        appContext = applicationContext
     }
     companion object {
         lateinit var appContext: Context

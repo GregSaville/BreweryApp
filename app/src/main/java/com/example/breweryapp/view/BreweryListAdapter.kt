@@ -12,9 +12,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
 import com.example.breweryapp.dto.Brewery
+import com.example.breweryapp.service.BreweryService
 
 
 class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Adapter<BreweryListAdapter.ViewHolder>() {
+
+    private val brewService = BreweryService()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_brewery, parent, false))
@@ -28,8 +31,8 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
             Log.i("asdf", "To Do: Add detail page")
         }
         holder.btFavorites.setOnClickListener(){
-            Log.i("asdf", "To Do: Add to favorites in shared preferences")
-
+            brewService.saveBrewery(breweries[position])
+            Log.i("asdf",brewService.getFavBreweries().toString())
         }
 
     }

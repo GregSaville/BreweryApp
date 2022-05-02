@@ -15,6 +15,7 @@ class BreweryService {
 
     val api = RetrofitApiFactory().getBreweryApi()
     var key = "FavList"
+    var sKey = "sFavList"
 
 
     fun getExampleBrewey(
@@ -149,20 +150,20 @@ class BreweryService {
     fun saveBrewery(brewery: Brewery){
         val favList: SharedPreferences = BreweryApplication.appContext.getSharedPreferences(key, Context.MODE_PRIVATE)
         val favEditor = favList.edit()
-        val savedBreweries = getAllBreweries()
+        val savedBreweries = getFavBreweries()
         if(savedBreweries!=null){
             savedBreweries.add(brewery.name.toString())
-            favEditor.putStringSet("key", savedBreweries).commit()
+            favEditor.putStringSet(sKey, savedBreweries).commit()
         } else{
             val newBrewery = setOf(brewery.name.toString())
-            favEditor.putStringSet("key", newBrewery).commit()
+            favEditor.putStringSet(sKey, newBrewery).commit()
         }
 
     }
 
-    private fun getAllBreweries(): MutableSet<String>? {
+    fun getFavBreweries(): MutableSet<String>? {
         val favList: SharedPreferences = BreweryApplication.appContext.getSharedPreferences(key, Context.MODE_PRIVATE)
-        return favList.getStringSet("key",null)
+        return favList.getStringSet(sKey,null)
     }
 
 }

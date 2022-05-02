@@ -11,6 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="24dp"
         android:text="@string/brewery_app_for_da_lads"
         android:gravity="center"
         android:layout_margin="24dp"/>
@@ -35,35 +36,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/offWhite">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_city"/>
+            android:gravity="center"
+            android:textSize="16dp"
+            android:text="BREWERY OF DA DAY"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" ----- "/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_type"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" ----- "/>
-
-        <Button
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:id="@+id/bt_details"
-            android:text=". . ."/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_BofD"
+        android:background="@color/offWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     </LinearLayout>
-
 </LinearLayout>
