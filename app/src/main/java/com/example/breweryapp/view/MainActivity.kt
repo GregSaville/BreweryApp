@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(searchActivityIntent)
         }
 
-//        favoritesBtn.setOnClickListener {
-//            val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
-//            startActivity(favoritesActivityIntent)
-//        }
+        favoritesBtn.setOnClickListener {
+            val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
+            startActivity(favoritesActivityIntent)
+        }
     }
 
     fun bindBreweries(breweries: List<Brewery>) {

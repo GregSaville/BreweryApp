@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
 import com.example.breweryapp.dto.Brewery
@@ -31,10 +32,15 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
             Log.i("asdf", "To Do: Add detail page")
         }
         holder.btFavorites.setOnClickListener(){
-            brewService.saveBrewery(breweries[position])
-            Log.i("asdf",brewService.getFavBreweries().toString())
+            if(holder.btFavorites.isChecked){
+                brewService.saveBrewery(breweries[position])
+                Log.i("asdf",brewService.getFavBreweries().toString())
+            }
+            else{
+                brewService.unsaveBrewery(breweries[position])
+                Log.i("asdf",brewService.getFavBreweries().toString())
+            }
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +52,7 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
         val tvCity : TextView = view.findViewById(R.id.tv_city)
         val tvType : TextView = view.findViewById(R.id.tv_type)
         val btDetail : Button = view.findViewById(R.id.bt_details)
-        val btFavorites : Button = view.findViewById(R.id.bt_favorites)
+        val btFavorites : ToggleButton = view.findViewById(R.id.bt_favorites)
     }
 
 }

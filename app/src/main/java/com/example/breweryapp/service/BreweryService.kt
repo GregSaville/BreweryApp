@@ -148,17 +148,21 @@ class BreweryService {
         })}
 
     fun saveBrewery(brewery: Brewery){
+        val savedBreweries = getFavBreweries()
+        savedBreweries?.add(brewery.name.toString())
+        updatePrefs(savedBreweries)
+    }
+
+    fun unsaveBrewery(brewery: Brewery){
+        val currentBreweries = getFavBreweries()
+        currentBreweries?.remove(brewery.name.toString())
+        updatePrefs(currentBreweries)
+    }
+
+    private fun updatePrefs(brewList : MutableSet<String>?){
         val favList: SharedPreferences = BreweryApplication.appContext.getSharedPreferences(key, Context.MODE_PRIVATE)
         val favEditor = favList.edit()
-        val savedBreweries = getFavBreweries()
-        if(savedBreweries!=null){
-            savedBreweries.add(brewery.name.toString())
-            favEditor.putStringSet(sKey, savedBreweries).commit()
-        } else{
-            val newBrewery = setOf(brewery.name.toString())
-            favEditor.putStringSet(sKey, newBrewery).commit()
-        }
-
+        favEditor.putStringSet(sKey, brewList).commit()
     }
 
     fun getFavBreweries(): MutableSet<String>? {

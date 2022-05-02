@@ -64,14 +64,15 @@
 
             android:layout_height="match_parent" />
 
-        <Button
+        <ToggleButton
             android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:id="@+id/bt_favorites"
             android:layout_weight="0.8"
 
-            android:text="Favs"
+            android:textOff="Add to Favorites"
+            android:textOn="Remove from Favorites"
             android:textSize="12sp"/>
 
     </LinearLayout>
