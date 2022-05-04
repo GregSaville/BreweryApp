@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val brewService = BreweryService()
 
 
+
         //buttons
         searchBtn = findViewById(R.id.search_button)
         favoritesBtn = findViewById(R.id.favorites_button)
@@ -53,7 +54,8 @@ class MainActivity : AppCompatActivity() {
 
         favoritesBtn.setOnClickListener {
             val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
-            startActivity(favoritesActivityIntent)
+            //startActivity(favoritesActivityIntent)
+            Log.i("asdf","TO DO - Fix Favorites Adapter")
         }
     }
 

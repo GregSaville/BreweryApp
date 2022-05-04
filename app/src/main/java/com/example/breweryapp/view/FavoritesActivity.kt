@@ -12,7 +12,7 @@ import com.example.breweryapp.service.BreweryService
 
 class FavoritesActivity : AppCompatActivity() {
     lateinit var rvFavs : RecyclerView
-    lateinit var btBack : Button
+    lateinit var btHome : Button
 
     val brewService = BreweryService()
 
@@ -24,6 +24,11 @@ class FavoritesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorites)
+
+        bindViews()
+        btHome.setOnClickListener(){
+            finish()
+        }
 
         for(brewery in brewNames!!){
             brewService.getByName(brewery,
@@ -43,5 +48,10 @@ class FavoritesActivity : AppCompatActivity() {
     fun bindBreweries(breweries: List<Brewery>) {
         rvFavs.layoutManager = LinearLayoutManager(this)
         rvFavs.adapter = BreweryListAdapter(breweries)
+    }
+
+    fun bindViews(){
+        btHome = findViewById(R.id.bt_home)
+        rvFavs = findViewById(R.id.rv_favs)
     }
 }

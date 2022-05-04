@@ -21,6 +21,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
     lateinit var spnrSearch: Spinner
     lateinit var searchButton: Button
     lateinit var searchText: EditText
+    lateinit var homeButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,10 @@ class SearchActivity : AppCompatActivity(), SearchView {
         initSpinner()
         searchButton.setOnClickListener(){
             presenter.makeSearch(currentSelection, searchText.text.toString())
+        }
+
+        homeButton.setOnClickListener(){
+            finish()
         }
 
         presenter.startSearch()
@@ -51,6 +56,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
         spnrSearch = findViewById(R.id.spnr_search)
         searchText = findViewById(R.id.spinner_edit_text)
         searchButton = findViewById(R.id.btn_search)
+        homeButton = findViewById(R.id.bt_SearchHome)
     }
 
     private fun initSpinner(){

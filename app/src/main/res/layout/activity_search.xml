@@ -30,6 +30,13 @@
         />
     </LinearLayout>
 
+    <Button
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/bt_SearchHome"
+        android:text="Home"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_breweries"
         android:layout_width="match_parent"
