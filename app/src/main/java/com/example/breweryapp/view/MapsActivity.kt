@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
@@ -29,23 +30,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(39.1563725, -84.4239715)
+        val strLatLong = intent.getStringExtra("latLong")
+        val strArray = strLatLong!!.split(",")
+        val lat = strArray.get(0).toDouble()
+        val long = strArray.get(1).toDouble()
+        val sydney = LatLng(lat , long)
         val zoomLevel :Float = 16F
 
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker at Brewery"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,zoomLevel))
     }
 }

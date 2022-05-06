@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         favoritesBtn.setOnClickListener {
             val favoritesActivityIntent = Intent(this, FavoritesActivity::class.java)
             //startActivity(favoritesActivityIntent)
-            Log.i("asdf","TO DO - Fix Favorites Adapter")
+            Toast.makeText(this, "WIP -- Come back later!", Toast.LENGTH_LONG).show()
         }
     }
 

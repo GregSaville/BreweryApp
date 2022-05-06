@@ -1,7 +1,9 @@
 package com.example.breweryapp.view
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Bundle
 import android.text.Layout
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,10 +12,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breweryapp.R
 import com.example.breweryapp.dto.Brewery
 import com.example.breweryapp.service.BreweryService
+import com.example.breweryapp.view.DetailActivity as DetailActivity
 
 
 class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Adapter<BreweryListAdapter.ViewHolder>() {
@@ -29,7 +33,9 @@ class BreweryListAdapter(private val breweries: List<Brewery>) : RecyclerView.Ad
         holder.tvCity.text = breweries[position].city
         holder.tvType.text = breweries[position].brewery_type
         holder.btDetail.setOnClickListener(){
-            Log.i("asdf", "To Do: Add detail page")
+            val DetailActivityIntent = Intent(holder.btDetail.context,DetailActivity::class.java)
+            DetailActivityIntent.putExtra("Name",breweries[position].name.toString())
+            startActivity(holder.btDetail.context, DetailActivityIntent,Bundle())
         }
         holder.btFavorites.setOnClickListener(){
             if(holder.btFavorites.isChecked){
